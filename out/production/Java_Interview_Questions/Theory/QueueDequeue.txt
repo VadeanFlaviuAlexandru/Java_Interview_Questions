@@ -1,0 +1,7 @@
+queue = FIFO (insertion of elements takes place from the rear end and deletion at front end)
+cant use iterators to access elements
+
+dequeue = NOT FIFO or LIFO (it uses dynamic array for its implementation, it can contract and
+ expand from both ends)
+it is a sequence container, so insertion/deletion of elements takes place from both the ends.
+elements can easily be accessed using iterators

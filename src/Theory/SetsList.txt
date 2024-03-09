@@ -1,0 +1,29 @@
+A list can have duplicates, null elements,
+they will start at index 0
+it will preserve the order
+you are allowed index-based access
+it has dynamic length ( automatically resizes itself )
+
+we have: arrayList and LinkedList
+
+arrayList: performance is slow (if an element is removed, the others are shifted.
+elements are not stored in contiguous locations and every element is a separate object
+with a data part and address part. The elements are linked using pointers and addresses.),
+better for storing and accessing
+
+linkedList: performance is faster (no shifting),can act as a list and a queue
+( we have those methods .addLast() and .removeFirst() ),
+better for manipulating data,
+
+--------------------------------------------------------
+
+A set cannot have duplicates, at most one null element
+it does not preserve the order=>you cant access elements
+by their index or search elements
+
+we have hashset, treeset, and linkedhashset.
+
+hashset: doesn't keep the order, better performance,max one null element
+treeset: it automatically sorts the elements, slower than the others,no null element allowed
+linkedhashset: keeps the order of insertion, performance is in the middle between the three,
+max one null element,
