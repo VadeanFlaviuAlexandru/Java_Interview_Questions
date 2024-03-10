@@ -1,3 +1,5 @@
+package CodingProblems;
+
 public class SecondLargestNumber {
     public static void main(String[] args) {
         int[] nums = {1, 2, 5, 6, 8, 9, 2, 10, 23, 21, 100};

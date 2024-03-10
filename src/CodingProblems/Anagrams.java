@@ -1,3 +1,5 @@
+package CodingProblems;
+
 import java.util.Arrays;
 
 public class Anagrams {

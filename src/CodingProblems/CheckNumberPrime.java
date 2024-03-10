@@ -1,3 +1,5 @@
+package CodingProblems;
+
 public class CheckNumberPrime {
     public static void main(String[] args) {
         int num = 7;

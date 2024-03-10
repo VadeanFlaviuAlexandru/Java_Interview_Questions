@@ -1,3 +1,5 @@
+package CodingProblems;
+
 public class SwapTwoNumbersWithoutThirdVar {
     public static void main(String[] args) {
         int a = 5; // make it 10

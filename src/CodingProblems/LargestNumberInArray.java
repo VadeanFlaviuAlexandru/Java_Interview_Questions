@@ -1,3 +1,5 @@
+package CodingProblems;
+
 public class LargestNumberInArray {
     public static void main(String[] args) {
         int[] nums = {1, 5, 3, 9, 7};

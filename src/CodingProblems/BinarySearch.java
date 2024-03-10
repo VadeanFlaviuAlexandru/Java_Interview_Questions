@@ -1,6 +1,8 @@
-public class BinarySearchModified {
+package CodingProblems;
+
+public class BinarySearch {
     public static void main(String[] args) {
-        int[] array = new int[]{1, 2, 3, 4, 6, 5, 7, 8, 10, 11, 9, 12};
+        int[] array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
         int target = 12;
         System.out.println(binarySearch(array, target));
     }
@@ -11,7 +13,7 @@ public class BinarySearchModified {
         while (left <= right) {
             int mid = left + (right - left) / 2;
             System.out.println("mid is " + mid + " because left is " + left + " right is " + right);
-            if (array[mid] == target || (mid > 0 && array[mid - 1] == target)) {
+            if (array[mid] == target) {
                 return "the number youre looking for " + target + " does exist!";
             } else if (array[mid] < target) {
                 left = mid + 1;

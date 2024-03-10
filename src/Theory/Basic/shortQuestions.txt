@@ -7,9 +7,12 @@ class overrides a method from the super/parent class.
 
 -> what is stack memory and what is heap memory?
 
-stack memory is memory allocated for local variables, parameters, addresses, etc.
+stack memory is memory allocated for information used by local variables, parameters, addresses, etc.
+stack memory is used for the execution of threads. each thread has its own stack. a thread is
+a sequence of instructions.
 heap memory is growing dynamically as the program runs. if there is heap memory available,
 then it allocates that space (for example when we use 'new', the heap is growing).
+all java objects are allocated space in the heap, and the memory is managed by the garbage collector
 we can run out of memory and have a 'stack overflow'
 
 -> what is the garbage collector?
@@ -63,7 +66,9 @@ we use == for reference and equals() for values
 
 -> is java pass be value or pass by reference ?
 
-passed by value
+passed by value. when we pass a value as a parameter to a method, it doesnt update the actual variable
+but when we pass an object to a method, you re actually passing the reference to the object (not
+ the actual object itself), so you can change the object from the method.
 
 -> association, composition and aggregation ?
 

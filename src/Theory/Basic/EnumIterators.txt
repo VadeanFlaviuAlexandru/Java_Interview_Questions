@@ -2,7 +2,7 @@ enum = for vector, hashtable and stack. can perform only read. traverses forward
 
 iterator = for any collection object and java8 streams. only read and delete. traverses forward
 
-listIterator = for List implementations(ArrayList,LinkedList,Stack). CRUD. traverses forward and back
+listIterator = for List implementations(ArrayList,LinkedList,CodingProblems.Stack). CRUD. traverses forward and back
 
 spliterator = any collection object,arrays and streams. red and concurrent read. traverses forward
 

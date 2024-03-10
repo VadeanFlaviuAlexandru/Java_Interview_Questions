@@ -1,3 +1,5 @@
+package CodingProblems;
+
 public class ReverseString {
     public static void main(String[] args) {
         //just reverse a string. two options:
