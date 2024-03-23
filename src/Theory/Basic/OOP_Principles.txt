@@ -1,0 +1,23 @@
+Encapsulation: Encapsulation is the bundling of data and methods that operate on the data into a
+single unit, called a class. This unit restricts direct access to some of the object's components,
+enforcing modularity and hiding the internal workings of an object. Encapsulation helps in preventing
+accidental modification of data and ensures that the object remains in a valid state.
+
+Abstraction: Abstraction refers to the concept of simplifying the complex reality by modeling classes
+appropriate to the problem and working at the most relevant level of inheritance. It helps in reducing
+programming complexity and effort. Abstraction provides a way to create user-defined data types and
+models that let developers work at higher levels of abstraction.
+
+Inheritance: Inheritance is a mechanism in which a new class is derived from an existing class.
+The new class inherits attributes and methods of the existing class, allowing for code reuse and
+extension of functionality. The existing class is referred to as the base class, parent class, or
+superclass, while the derived class is known as the subclass or child class. Inheritance facilitates
+the creation of hierarchical classifications, allowing classes to inherit common attributes and
+behaviors while also allowing for specialization.
+
+Polymorphism: Polymorphism means "many forms" and refers to the ability of objects to respond
+differently to the same message or method invocation. It allows objects of different classes
+to be treated as objects of a common superclass. There are two types of polymorphism:
+compile-time polymorphism (method overloading) and runtime polymorphism (method overriding).
+Polymorphism enhances the flexibility and reusability of code by enabling the use of a single
+interface to represent different data types or objects.

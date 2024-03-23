@@ -1,0 +1,19 @@
+1. https://www.youtube.com/watch?v=K8PGcFAmwjQ
+
+2. The reflection of the elevator in the mirror makes the lift appear much wider
+and grants the mind a sense of space and safety. Mirrors also serve as a
+useful distraction to pass the time in a lift, making the ride feel shorter and
+minimising feelings of boredom and claustrophobia.
+
+3.     PIN Authentication: The use of a PIN adds a layer of security to ensure that
+        only authorized users can access the account.
+       Encrypted Communication: The communication between the ATM and
+        the bank's servers is encrypted to protect sensitive account information from interception.
+       Transaction Authorization: The bank verifies the account details and available balance
+        before approving the withdrawal request.
+       Physical Security: ATMs are often located in secure areas and equipped with
+        surveillance cameras to deter criminal activities and ensure user safety.
+       Transaction Receipt: Providing a receipt allows users to verify the transaction
+        details and reconcile their account statements, enhancing transparency and security.
+       Timeout and Session Termination: To prevent unauthorized access, ATMs typically have
+        session timeout mechanisms that automatically log out users after a period of inactivity.

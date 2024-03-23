@@ -1,0 +1,17 @@
+1. Polymorphism means "many forms" and refers to the ability of objects to respond
+   differently to the same message or method invocation. It allows objects of different classes
+   to be treated as objects of a common superclass. There are two types of polymorphism:
+   compile-time polymorphism (method overloading) and runtime polymorphism (method overriding).
+   Polymorphism enhances the flexibility and reusability of code by enabling the use of a single
+   interface to represent different data types or objects.
+
+2. Method overriding is a feature in object-oriented programming that allows a subclass to provide
+    a specific implementation of a method that is already defined in its superclass.
+    When a method in a subclass has the same name, same parameters, and same return type as a method in
+    its superclass, it is said to override the method of the superclass.
+
+3. 'super' keyword refer to the superclass of the current object or to call methods and
+    constructors of the superclass.
+
+4. 'public static void main(String args[])' is the signature of the entry point method
+    for a Java program.
