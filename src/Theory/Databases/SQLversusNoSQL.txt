@@ -1,0 +1,80 @@
+1. what is horizontal scaling and vertical scaling?
+well, lets remember:
+    CPU = for calculating things
+    RAM = method of communicating data between CPU and storage
+    DISK = storage
+server also has those. so a server can scale:
+
+horizontal = distribute your code to smaller servers which are often
+    broken down to microservices that can run and scale independently
+
+or
+
+vertical = take your server and increase its ram, storage and/or cpu.
+    eventually you will hit a ceiling
+
+2. what is sql and what is nosql?
+
+SQL (Relational Databases):
+
+    Structured Data: SQL databases are table-based and follow a predefined schema.
+    ACID Properties: Emphasize the ACID properties (Atomicity, Consistency, Isolation, Durability)
+                    to ensure data integrity.
+    Schema: A rigid schema must be defined before data insertion.
+    Scalability: Traditionally scaled vertically, but modern SQL databases can also be
+                    scaled horizontally using techniques like sharding and replication.
+
+NoSQL Databases:
+
+    Unstructured or Semi-structured Data: NoSQL databases can handle a variety of data formats,
+                                          including JSON, XML, and key-value pairs.
+    BASE Properties: Emphasize the BASE properties (Basically Available, Soft state, Eventually
+                     consistent) that allow for more flexible and scalable systems.
+    Schema-less: No fixed schema; fields can be added on the fly.
+    Scalability: NoSQL databases are designed to scale horizontally, making it easier to
+                 handle large amounts of data by adding more nodes to the database cluster.
+
+So, the distinction between horizontal and vertical scaling is more about the general scalability
+ principles, and both SQL and NoSQL databases can be designed to scale in either direction.
+ However, NoSQL databases are often more associated with horizontal scaling due to their
+ distributed and flexible nature.
+
+3. ACID and BASE
+
+ACID:
+
+Atomicity: This property ensures that either all operations within a transaction are completed successfully, or none
+of them are. In other words, a transaction is treated as a single unit that either succeeds completely or
+fails completely.
+
+Consistency: This property ensures that the database remains in a consistent state before and after the execution of a
+transaction. It means that all data written to the database must be valid according to all defined rules,
+including constraints, cascades, and triggers.
+
+Isolation: This property ensures that the execution of transactions concurrently does not result in data inconsistency.
+Each transaction should be isolated from other transactions until it is committed, ensuring that the results of one
+transaction do not affect the results of another.
+
+Durability: This property ensures that once a transaction is committed, the changes made by the transaction are permanent
+and survive system failures. The changes are stored in non-volatile storage, typically disk.
+
+ACID properties are typically associated with traditional relational database management systems such as MySQL,
+PostgreSQL, and Oracle.
+
+BASE:
+
+Basically Available: This property means that the system should always be available for read and write operations,
+even if it is in a partially functional state. It prioritizes availability over consistency.
+
+Soft state: This property allows for the temporary inconsistency in the system. It means that the system does not have
+to be in a consistent state all the time, and it can tolerate temporary inconsistencies until it reaches
+a consistent state again.
+
+Eventually consistent: This property means that the system will become consistent over time,
+given that it is not being updated with new data. It allows for eventual convergence to a consistent state,
+but it does not guarantee immediate consistency.
+
+BASE properties are often associated with NoSQL databases and distributed systems where achieving strong
+consistency across distributed nodes may be impractical or inefficient due to factors such as network latency
+and partition tolerance. Examples of NoSQL databases that adhere to BASE principles include Cassandra, MongoDB,
+and Couchbase.
