@@ -1,0 +1,90 @@
+1. Describe the difference between a thread and a process. Can a process start a thread?
+What about a thread a process?
+
+    Thread:
+        A thread is the smallest unit of execution within a process. Threads share the same memory
+        space and resources within a process. Threads can be thought of as individual sequences
+        of instructions that can be scheduled and executed by the operating system's scheduler.
+        Multiple threads within a process can execute concurrently, allowing for parallelism or
+        concurrent execution of tasks. Threads are lightweight compared to processes because
+        they share resources such as memory and file descriptors.
+
+    Process:
+        A process is an instance of a program that is being executed. It includes the program code,
+        data, and resources such as memory, files, and hardware contexts. Each process has its own
+        memory space, which is isolated from other processes. This isolation ensures that processes
+        do not interfere with each other's memory. Processes are heavyweight entities managed by the
+        operating system. They have their own process control block (PCB) containing information such
+        as process state, program counter, and memory management details.
+
+Now, regarding the interaction between threads and processes:
+
+    Can a process start a thread?: Yes, a process can start one or more threads. When a process
+    is created, it typically starts with a single thread, often referred to as the main thread.
+    Additional threads can be created within the process to perform concurrent tasks or operations.
+    For example, in Java, you can create threads using the Thread class or implementing the
+    Runnable interface.
+
+    What about a thread a process?: No, a thread cannot start a process directly. Threads are
+    execution units within a process and do not have the capability to create or
+    start new processes. Creating a new process typically involves operating system calls or
+    system-level APIs, which are not accessible from within a thread. However, a thread can
+    indirectly influence or trigger the creation of a new process by invoking system calls or
+    spawning subprocesses.
+
+2. What issues can appear when using multiple threads and how can they be mitigated?
+
+Using multiple threads in a program can introduce several issues, including:
+
+    Race Conditions: Race conditions occur when multiple threads access shared data concurrently,
+    and the outcome depends on the timing of their execution. This can lead to unpredictable
+    behavior and incorrect results.
+
+    Deadlocks: Deadlocks occur when two or more threads are blocked forever, waiting for each other
+    to release resources that they need. Deadlocks can freeze the entire application, causing it to
+    become unresponsive.
+
+    Resource Contention: Threads may contend for shared resources such as locks, I/O resources,
+    or CPU time. Contentions can lead to decreased performance and throughput.
+
+    Thread Starvation: Thread starvation happens when a thread is unable to gain access to the
+    CPU or other resources it needs for an extended period. This can occur due to the high priority
+    of other threads or resource contention.
+
+To mitigate these issues, various techniques and best practices can be applied:
+
+    Race Conditions: To prevent race conditions, use locks or synchronization to ensure that only
+    one thread can access shared data at a time. This ensures that data is accessed in a controlled
+    manner, preventing conflicts.
+
+    Deadlocks: Avoid deadlocks by ensuring that threads always acquire locks in the same order.
+    Additionally, use timeout mechanisms or deadlock detection algorithms
+    (Resource Allocation Graph (RAG) Algorithm and Wait-for-Graph Algorithm) to identify and break
+    deadlocks if they occur.
+
+    Resource Contention: Minimize resource contention by using resource pooling techniques.
+    This involves creating a pool of resources (such as database connections) that threads can
+    borrow from and return to, reducing the need for threads to wait for exclusive access to
+    resources.
+
+    Thread Starvation: Prevent thread starvation by managing thread priorities effectively.
+    Ensure that critical threads have higher priorities so that they receive sufficient CPU time
+    without starving lower priority threads.
+
+*. Here are some additional things you should know about threads:
+
+thread lifecycle: new, active (runnable, running), blocked/waiting, timed waiting, terminated
+
+Synchronization Mechanisms: Thread synchronization mechanisms provide a way to control access to
+            shared resources and prevent race conditions. Common synchronization mechanisms include:
+
+    Locks and Mutexes: Locks (also known as mutexes) allow threads to acquire exclusive access to a resource.
+    Only one thread can hold the lock at a time, ensuring that other threads are blocked until the lock is released.
+
+    Semaphores: Semaphores are a generalized synchronization primitive that can be used to control access to a resource
+    with a limited number of permits. Semaphores can be used to implement various synchronization patterns, such as
+    producer-consumer and reader-writer scenarios.
+
+    Monitors: Monitors are a higher-level synchronization construct that combines data (shared variables) and
+    procedures (methods) into a single synchronized entity. In languages like Java, monitors are implemented using
+    synchronized blocks or methods.

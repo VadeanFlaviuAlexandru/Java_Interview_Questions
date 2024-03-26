@@ -1,0 +1,74 @@
+1. Given an array of integer numbers how do you find a given number’s position?
+What if the array were sorted, does this help you find the number faster?
+What is the complexity of the search?
+
+For small arrays (especially if they're unsorted), linear search might be more efficient
+due to its simplicity and lower overhead. For larger arrays, regardless of whether it's one
+search or multiple searches, it's generally better to sort the array first (if it's unsorted)
+and then use binary search. The efficiency gained from the logarithmic time complexity of
+binary search usually outweighs the initial cost of sorting, especially as the size of the
+array increases.
+
+2. What is strong-typing versus weak-typing? Which is preferred? Why?
+
+In a strongly typed language, the data types of variables are enforced strictly, and
+implicit type conversions are limited. This means that the compiler or interpreter checks
+the types of variables at compile time and enforces strict type compatibility rules.
+Examples of strongly typed languages include Java, C#, and Swift.
+In a weakly typed language, the data types of variables are more flexible, and implicit type
+conversions are common. Weakly typed languages may perform automatic type conversions (coercion)
+between different data types without explicit instructions from the programmer.
+Examples of weakly typed languages include JavaScript, PHP, and Perl.
+
+Which is preferred depends on the context and the preferences of the programmer or development team
+
+    Safety: Strong typing can help catch type-related errors at compile time,
+    reducing the likelihood of runtime errors and bugs. This can improve the reliability and
+    robustness of the code.
+
+    Clarity: Strong typing can make code more self-documenting and easier to understand, as the
+    data types of variables are explicitly declared and enforced.
+
+    Flexibility: Weak typing can offer more flexibility and convenience in certain scenarios, as
+    it allows for implicit type conversions and may require less boilerplate code.
+
+    Productivity: Weak typing may lead to faster development in some cases, as it allows for more
+    flexible and dynamic coding practices.
+
+3. What is Unicode and what does it help with?
+
+Unicode is a character encoding standard that aims to provide a consistent way to represent text in
+computer systems, regardless of language, script, or platform. It assigns a unique numerical value
+(code point) to every character
+
+Here's what Unicode helps with:
+
+    Multilingual Support: Unicode enables the representation of text in multiple languages and
+    scripts
+
+    Standardization: Unicode provides a single, universal character encoding standard that replaces
+    many previous encoding standards, such as ASCII,
+
+    Compatibility: Unicode is designed to be backward-compatible with existing character encoding
+    standards. This means that text encoded in older standards can be converted to Unicode without
+    loss of information, and Unicode-encoded text can be correctly interpreted by software that
+    expects legacy encodings.
+
+*. However, ASCII has limitations, particularly in its ability to represent characters from
+languages other than English and symbols beyond the basic alphanumeric and punctuation characters.
+ASCII only uses 7 bits to represent characters, allowing for a total of 128 characters.
+
+   Unicode, on the other hand, provides a much broader character set, accommodating characters
+   from virtually all languages, scripts, and symbols used in computing. It supports characters
+   from languages such as Chinese, Japanese, Arabic, Cyrillic, and many others, as well as symbols,
+   emojis, and special characters.
+
+4. What is a hashtable and how does it manage to look up stuff in O(1)?
+
+A hashtable, also known as a hash map, is a data structure that stores key-value pairs, and
+look-up is based on the keys. The fast lookup time complexity is due to a technique called hashing.
+Hashing is when a key is converted into a hash code, a numerical representation. The hash code
+determines the index inside the hash table. In the case of key collision, it can be handled by
+separate chaining, where the value is stored inside a linked list, or open addressing, where the
+value is put in the next available index. Since the lookup strategy is hashing the key, retrieval
+of the value based on the hash code is fast, with a time complexity of O(1).

@@ -1,0 +1,54 @@
+1. What does encapsulation mean in OOP and how does it help concretely?
+
+Encapsulation is one of the core principles of object-oriented programming (OOP) and refers to
+the bundling of data (attributes or properties) and methods (functions or procedures) that
+operate on the data into a single unit or class. It hides the internal state of an object
+from the outside world and only exposes the necessary interfaces for interacting with the object.
+
+Here's how encapsulation helps concretely in OOP:
+
+    Data Hiding: Encapsulation allows the internal state of an object to be hidden from
+    external access. By declaring data members as private or protected, you prevent direct access
+    to them from outside the class. This helps prevent unintended modifications or invalid state
+    changes, enhancing the reliability and robustness of the code.
+
+    Abstraction: Encapsulation enables abstraction by providing a clear separation between the
+    interface (public methods) and the implementation details (private members) of a class.
+    Users of the class only need to know how to interact with its public interface, without
+    needing to understand its internal workings. This simplifies the usage of complex systems
+    and promotes modularity and maintainability.
+
+    Enhanced Security: By encapsulating data and providing controlled access through methods,
+    encapsulation enhances security by preventing unauthorized access or modification of
+    sensitive data. It allows you to enforce access control policies and implement additional
+    security measures, such as validation checks and authentication mechanisms.
+
+2. What is an abstract class and an interface. Differences and similarities.
+When would you use one or the other.
+
+Abstract classes and interfaces are both fundamental concepts in object-oriented programming
+that facilitate abstraction and polymorphism. While they share similarities, they also have
+key differences in their usage and capabilities.
+
+Abstract Class:
+
+An abstract class is a class that cannot be instantiated directly; it serves as a blueprint
+for other classes to inherit from.
+It can contain both abstract (unimplemented) methods and concrete (implemented) methods.
+Abstract classes may also contain fields, constructors, and non-abstract methods.
+Abstract classes support both inheritance and code reuse.
+
+Interface:
+
+An interface is a reference type similar to a class that defines a set of abstract methods.
+Interfaces can only contain method signatures, constant variables (implicitly static and final),
+and default methods (with implementation).
+Classes implement interfaces, providing concrete implementations for all the abstract methods
+declared in the interface.
+Interfaces are used to define contracts, specifying what a class can do without specifying
+how it does it.
+
+*. a class can extend only one class, but implement multiple interfaces.
+an abstract class can extend another single abstract class/default class or
+implement multiple interfaces.
+an interface can extend or inherit any number of interfaces, but not extend another class
