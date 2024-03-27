@@ -1,0 +1,107 @@
+1. In a SCRUM team, who’s the manager?
+
+In a Scrum team, there is typically no traditional manager in the traditional sense.
+Scrum promotes a self-organizing, cross-functional team structure where responsibility
+and decision-making are distributed among team members rather than being centralized in a
+single manager.
+
+Instead, Scrum teams are led by the Scrum Master, who is responsible for facilitating the
+Scrum process, removing impediments, and ensuring that the team adheres to Scrum principles
+and practices. The Scrum Master acts as a servant-leader, supporting the team in achieving
+its goals, fostering collaboration, and facilitating continuous improvement.
+
+Within the Scrum team itself, there are no formal titles or hierarchical distinctions. Instead,
+team members collaborate and work together to deliver product increments during each sprint.
+The team is expected to be self-organizing, with members taking ownership of tasks, making
+decisions collectively, and holding each other accountable for delivering high-quality work.
+
+2. What are design patterns? What is their purpose and what are their benefits?
+
+Design patterns are reusable solutions to common problems encountered during
+software development. They provide a common language for developers to communicate
+design ideas and solutions, enhancing collaboration and understanding among team members.
+(Design patterns abstract away from implementation details, focusing on the problem domain and
+high-level design decisions. This allows developers to focus on solving higher-level architectural
+and design challenges rather than getting bogged down in low-level implementation details.)
+Design patterns help manage complexity and scale software systems by providing well-defined
+structures and guidelines for building larger, more complex systems.
+
+the most popular design patterns:
+
+    Singleton: Ensures that a class has only one instance and provides a global point of access
+    to that instance.
+( class connection { private static final Connection instance new Connection () ;
+                                use private constructors } )
+
+    Factory Method: Defines an interface for creating an object, but allows subclasses to alter
+    the type of objects that will be created.
+
+    Abstract Factory: Provides an interface for creating families of related or dependent
+    objects without specifying their concrete classes.
+
+    Builder: Separates the construction of a complex object from its representation, allowing the
+    same construction process to create different representations.
+
+    Decorator: Adds new functionality to an object dynamically without altering its structure,
+    providing a flexible alternative to subclassing for extending functionality.
+
+3. Explain the use of one of the following patterns: Facade, Proxy, and Bridge.
+Advantages vs disadvantages in practice.
+
+The Proxy pattern is a structural design pattern that provides a surrogate or placeholder for
+another object to control access to it. This pattern involves creating a new object (the proxy)
+that acts as an intermediary between the client and the real object. The client interacts with
+the proxy, which in turn delegates the request to the real object as necessary.Consider a scenario
+where you have a large video file that needs to be loaded into memory for processing. Loading such
+a file directly into memory might be inefficient, especially if the file is very large. Instead,
+you could use a proxy object to represent the video file. The proxy could handle tasks like loading
+the video file into memory only when necessary and provide additional functionalities like caching
+or access control.
+The Facade pattern is a structural design pattern that provides a simplified interface to a complex
+system of classes, libraries, or APIs. It hides the complexities of the underlying system and
+provides a unified interface for the client to interact with. Facade encapsulates the interactions
+between multiple objects and presents them through a single interface.
+Imagine you're working with a complex library or framework with numerous classes and subsystems.
+Instead of exposing all these complexities to the client, you can create a facade class that
+provides a simplified interface for common tasks.
+The Bridge pattern is a structural design pattern that decouples an abstraction from its
+implementation so that the two can vary independently. It involves creating two separate
+hierarchies: one for the abstraction (interface or abstract class) and another for the
+implementation. The bridge pattern allows changes in the abstraction or implementation to
+occur independently without affecting each other.
+Consider a scenario where you have different shapes (abstraction) that can be drawn using
+different rendering engines (implementation), such as drawing shapes using vector graphics
+or raster graphics. The Bridge pattern allows you to define separate hierarchies for shapes
+and rendering engines, and then bridge them together using composition, enabling any shape
+to be drawn using any rendering engine.
+
+4. Explain the use of one of the following patterns: Strategy, Observer, Visitor.
+Advantages vs disadvantages in practice.
+
+The Strategy pattern is a behavioral design pattern that enables a client to choose from a
+family of algorithms at runtime. It defines a set of algorithms, encapsulates each one, and
+makes them interchangeable. The client can switch between different strategies without altering
+its structure.Consider a sorting algorithm. In a system that requires sorting functionality, you
+can implement the Strategy pattern by creating a strategy interface (e.g., SortStrategy) and
+concrete implementations for various sorting algorithms (e.g., QuickSort, MergeSort). The client
+can then choose which sorting algorithm to use at runtime by selecting the appropriate strategy.
+The Observer pattern is a behavioral design pattern where an object (known as the subject)
+maintains a list of its dependents (observers) and notifies them of any state changes, usually by
+calling one of their methods. This pattern establishes a one-to-many dependency between objects,
+ensuring that when one object changes its state, all its dependents are notified and updated
+automatically.
+Consider a scenario where you have a weather station that periodically measures temperature,
+humidity, and pressure. Multiple displays (e.g., current conditions display, statistics display,
+forecast display) need to be updated whenever the weather data changes. In this case, the weather
+station acts as the subject, and the displays act as observers.
+The Visitor pattern is a behavioral design pattern that allows adding new operations to existing
+classes without modifying their structure. It achieves this by separating the algorithm from the
+object structure on which it operates. The Visitor pattern involves defining a visitor interface
+with methods corresponding to each class in the object structure. Concrete visitor implementations
+can then visit each element of the object structure and perform the necessary operations.
+Consider a system with a hierarchy of shapes (e.g., circles, rectangles, triangles). You may need
+to perform various operations on these shapes, such as calculating their area, perimeter, or
+rendering them to a canvas. Instead of adding these operations directly to the shape classes,
+which can lead to a proliferation of methods and violate the open/closed principle, you can use
+the Visitor pattern. Define a visitor interface with visit methods for each shape type, and
+concrete visitor implementations for each operation you want to perform on the shapes.

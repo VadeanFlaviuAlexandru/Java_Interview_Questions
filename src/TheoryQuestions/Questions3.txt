@@ -52,3 +52,75 @@ how it does it.
 an abstract class can extend another single abstract class/default class or
 implement multiple interfaces.
 an interface can extend or inherit any number of interfaces, but not extend another class
+
+3. What is polymorphism and how does it help us? How many types of polymorphism exist?
+Any disadvantages?
+
+Polymorphism refers to the ability of objects to exhibit different behaviors based on their
+specific types or the context in which they are used. This means that the same method call or
+operation may result in different behaviors depending on the actual object that receives the call.
+
+Types of Polymorphism:
+
+    Compile-Time Polymorphism (Static Polymorphism):
+        Also known as method overloading and operator overloading.
+        Resolved at compile time.
+        Method overloading allows multiple methods with the same name but different parameter
+        lists to coexist in the same class.
+        Operator overloading allows operators to have different meanings in different contexts.
+
+    Run-Time Polymorphism (Dynamic Polymorphism):
+        Also known as method overriding and interface implementation.
+        Resolved at runtime.
+        Method overriding occurs when a subclass provides a specific implementation of a
+        method that is already defined in its superclass.
+        Interface implementation allows objects of different classes to be treated as objects of a
+        common interface, enabling polymorphic behavior.
+
+disadvantages: complexity, slight performance maybe but not anymore because of modern JVM,
+                potential design issues.
+
+4. What’s the difference between Optimistic and Pessimistic concurrency models?
+
+Optimistic and pessimistic concurrency control are two approaches used in database systems
+to manage access to shared data by multiple transactions. They represent different strategies
+for dealing with the possibility of conflicts between concurrent transactions.
+
+Optimistic Concurrency Control:
+
+    In optimistic concurrency control, transactions are allowed to proceed without any
+    locking mechanisms initially.
+    Each transaction is allowed to perform its operations without checking for conflicts with
+    other transactions.
+    Instead of locking data, optimistic concurrency control relies on detecting conflicts after
+    the transactions have completed their operations.
+    When a transaction attempts to commit, the database system checks whether any conflicts
+    occurred during its execution.
+    If conflicts are detected (e.g., another transaction modified the data being read or
+    modified by the current transaction), the transaction may be aborted or rolled back.
+    Optimistic concurrency control is often used in scenarios where conflicts between
+    transactions are relatively rare, and the overhead of locking data for each transaction
+    is deemed too high.
+
+Pessimistic Concurrency Control:
+
+    In pessimistic concurrency control, transactions acquire locks on data before performing
+    any operations that could potentially lead to conflicts.
+    Locks are obtained in advance to prevent other transactions from accessing or
+    modifying the same data until the lock is released.
+    Transactions may acquire various types of locks, such as read locks (shared locks) or
+    write locks (exclusive locks), depending on the type of access they require.
+    Pessimistic concurrency control ensures that conflicts between transactions are avoided
+    by preventing concurrent access to shared data.
+    While effective at preventing conflicts, pessimistic concurrency control can lead
+    to performance overhead, especially in scenarios where long-held locks delay other
+    transactions and reduce concurrency.
+
+5. Elaborate on Inheritance vs Composition
+
+ Inheritance is a mechanism in which a new class (subclass or derived class) is created based
+ on an existing class (superclass or base class). The subclass inherits attributes and behaviors
+ (methods and fields) from the superclass.
+ Composition is a design technique in which a class contains an instance of another class as a
+ member. Rather than inheriting attributes and behaviors, a class uses instances of
+ other classes to fulfill its functionality.

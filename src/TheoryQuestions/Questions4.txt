@@ -1,0 +1,66 @@
+1. What is unit testing and how is it done? Frameworks, tools? Mocks vs stubs?
+
+Unit testing is a software testing approach where individual units or components of a
+software system are tested in isolation to ensure that they function correctly.
+In Java we have JUnit and Mockito.
+Assertions are statements that verify expected outcomes of test cases.
+Unit tests typically include assertions to verify that the actual behavior
+of the code matches the expected behavior.
+Mocks and stubs are test doubles used in unit testing to isolate the code
+under test from its dependencies.
+    Mocks are dynamic objects with pre-programmed expectations (e.g., expected method calls)
+that can be verified during the test execution. They are used to verify interactions
+between the code under test and its dependencies. So basically very similar to Stub but
+interaction-based rather than state-based. This means you don't expect from Mock to return
+some value, but to assume that specific order of method calls are made.
+    Stubs are simple implementations of dependencies that provide canned responses to
+method calls. They are used to simulate the behavior of real objects. So basically override
+methods to return hard-coded values, also referred to as state-based.
+
+2. Continuous integration and/vs continuous delivery.
+
+Continuous Integration (CI) and Continuous Delivery (CD) are practices in software development
+that aim to improve the speed, quality, and reliability of delivering software products. While they
+share similarities, they focus on different aspects of the development and delivery pipeline.
+
+Continuous Integration (CI):
+
+    Definition: Continuous Integration is a practice where developers regularly integrate their
+    code changes into a shared repository (mainline) multiple times a day. Each integration is
+    verified by automatically building the code and running automated tests to detect integration
+    errors and conflicts early.
+
+Continuous Delivery (CD):
+
+    Definition: Continuous Delivery is an extension of Continuous Integration where software is
+    built, tested, and prepared for release automatically and frequently. The goal is to ensure
+    that software is always in a releasable state, allowing teams to release new features, fixes,
+    and updates to customers quickly and with minimal manual intervention.
+
+Continuous Integration (CI) is typically a subset or component of the Continuous Delivery (CD)
+process. CI focuses on automating the integration of code changes and running tests to ensure
+the correctness of those changes. This involves frequent integration of code into a shared
+repository, automated builds, and automated testing.
+
+Continuous Delivery (CD) extends CI by automating the entire process of delivering software
+changes to production or customers in a reliable, repeatable, and efficient manner. This
+includes additional steps beyond CI, such as building deployment artifacts, deploying them
+to various environments (e.g., development, staging, production), and potentially releasing
+them to customers.
+
+3. What is source control and how can it help us? How does “git rebase” work and how could
+it be helpful?
+
+Source control, also known as version control or revision control, is a system that tracks
+changes to files and directories over time. It allows multiple contributors to collaborate
+on a project by managing different versions of files, keeping a history of changes, and
+facilitating the merging of modifications from different sources. As for "git rebase," it
+is a Git command used to incorporate changes from one branch into another by reapplying
+commits on top of another base branch.
+
+4. What does refactoring mean?
+
+Refactoring is the process of restructuring existing code without changing its external
+behavior. It involves making improvements to the internal structure, design, and readability
+of the codebase to make it more maintainable, understandable, and efficient. The primary goal
+of refactoring is to improve the quality of the code without altering its functionality.
