@@ -108,7 +108,7 @@ Pessimistic Concurrency Control:
     any operations that could potentially lead to conflicts.
     Locks are obtained in advance to prevent other transactions from accessing or
     modifying the same data until the lock is released.
-    Transactions may acquire various types of locks, such as read locks (shared locks) or
+    CodingProblems.Transactions may acquire various types of locks, such as read locks (shared locks) or
     write locks (exclusive locks), depending on the type of access they require.
     Pessimistic concurrency control ensures that conflicts between transactions are avoided
     by preventing concurrent access to shared data.
