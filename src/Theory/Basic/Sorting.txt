@@ -1,3 +1,28 @@
  Which Sorting Algorithm Should I Use?
  (Depends. Each algorithm comes with its own set of pros and cons.)
 
+---------
+
+Selection sort works by repeatedly "selecting" the next-smallest element from the unsorted
+array and moving it to the front.
+
+Insertion sort works by inserting elements from an unsorted array into a sorted subsection of
+the array, one item at a time.
+
+---------
+
+The selection sort algorithm is a comparison-based approach with a time complexity of O(N2),
+making it best suited for an array data structure with a small, completely unsorted collection.
+
+Insertion sort is an in-place comparison-based sorting algorithm that works best with partially
+unsorted collections and has a time complexity of O(N2).
+
+Merge Sort is a Divide and Conquer algorithm that divides an input collection into two portions,
+recursively calls itself to sort them, and then merges the two sorted portions, with Time Complexity
+O(NlogN) and Space Complexity O(N), best suited for large, unsorted collections of data.
+
+---------
+
+Bubble sort is an inefficient comparison-based sorting algorithm that iterates through a
+collection and swaps adjacent elements, allowing the largest value to "bubble" up to the top,
+with Time Complexity O(N2) and Space Complexity O(1).
