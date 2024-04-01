@@ -1,4 +1,4 @@
-package CodingProblems.Important;
+package CodingProblems;
 
 public class BubbleSort {
 

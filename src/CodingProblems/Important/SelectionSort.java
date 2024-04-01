@@ -3,19 +3,20 @@ package CodingProblems.Important;
 //use this when: When the list is small and when memory space is limited
 public class SelectionSort {
 
-    void sort(int arr[]) {
-        int n = arr.length;
+    // so basically, we go through the entire array. when we find a min number
+    // we keep it in a min number variable and we repeat this each iteration
 
-        for (int i = 0; i < n - 1; i++) {
-            int min_idx = i; // keep track of the first value
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[min_idx]) {
-                    min_idx = j; // if we find a lower value, we swap the values
+    void sort(int arr[]) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[min] > arr[j]) {
+                    min = j;
                 }
             }
-            int temp = arr[min_idx];
-            arr[min_idx] = arr[i];
-            arr[i] = temp;//we put the lowest value at the beggining
+            int temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
         }
     }
 
@@ -29,7 +30,7 @@ public class SelectionSort {
 
     public static void main(String args[]) {
         SelectionSort ob = new SelectionSort();
-        int arr[] = {64, 89, 25, 12, 22, 11};
+        int arr[] = {9, 1, 8, 2, 7, 3, 6, 4, 5};
         ob.sort(arr);
         System.out.println("Sorted array");
         ob.printArray(arr);

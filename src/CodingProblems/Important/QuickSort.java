@@ -2,51 +2,36 @@ package CodingProblems.Important;
 
 public class QuickSort {
 
-    static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+    public static void main(String args[]) {
+        int[] array = {8, 2, 5, 3, 9, 4, 7, 6, 1};
+        quickSort(array, 0, array.length - 1);
+        for (int i : array) {
+            System.out.print(i + " ");
+        }
     }
 
-    static int partition(int[] arr, int low, int high) {
-        int pivot = arr[high];
+    private static void quickSort(int[] array, int start, int end) {
+        if (end <= start) return;
+        int pivot = partition(array, start, end);
+        quickSort(array, start, pivot - 1);
+        quickSort(array, pivot + 1, end);
+    }
 
-        int i = (low - 1);
-
-        for (int j = low; j <= high - 1; j++) {
-
-            if (arr[j] < pivot) {
-
+    private static int partition(int[] array, int start, int end) {
+        int pivot = array[end];
+        int i = start - 1;
+        for (int j = start; j <= end; j++) {
+            if (array[j] < pivot) {
                 i++;
-                swap(arr, i, j);
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
         }
-        swap(arr, i + 1, high);
-        return (i + 1);
-    }
-
-    static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-
-            int pi = partition(arr, low, high);
-
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
-        }
-    }
-
-    public static void printArr(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {10, 7, 8, 9, 1, 5};
-        int N = arr.length;
-
-        quickSort(arr, 0, N - 1);
-        System.out.println("Sorted array:");
-        printArr(arr);
+        i++;
+        int temp = array[i];
+        array[i] = array[end];
+        array[end] = temp;
+        return i;
     }
 }

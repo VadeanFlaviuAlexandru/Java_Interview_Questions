@@ -15,8 +15,156 @@ subarray which is unsorted. In every iteration of the selection sort, the minimu
                      It has a time complexity of O(n^2), meaning its performance degrades quickly
                         as the dataset size increases. Therefore, for larger datasets, more
                         efficient algorithms like merge sort or quicksort are preferred.
+                     best: omega(N^2), 💛average: theta(n^2), worst: O(N^2)💛
 
 ---------
+
+Insertion Sort: This sorting algorithm is a simple sorting algorithm that works the way we sort
+playing cards in our hands. It places an unsorted element at its suitable place in each iteration.
+
+❤️ use this when: If the data is nearly sorted or when the list is small as it has a complexity
+                        of O(N^2) and if the list is sorted a minimum number of elements will slide
+                        over to insert the element at its correct location.
+                     This algorithm is stable and it has fast running case when the list is nearly
+                        sorted.
+                     The usage of memory is a constraint as it has space complexity of O(1).
+                     best: omega(N), 💛average: theta(n^2), worst: O(N^2)💛
+
+❤️❤️=========❤️❤️️❤️️❤️️❤️
+use selection sort when it comes to small datasets.
+use insertion sort when it comes to partially sorted small datasets.
+    -> it has O(N^2) for average-case time complexity
+bubble is a weaker alternative for simplicity, but, in general, when it comes to big datasets, use:
+merge sort or quick sort.
+
+    void SelectionSort(int arr[]) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[min] > arr[j]) {
+                    min = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+        }
+    }
+
+    void InsertionSort(int arr[]) {
+        for (int i = 0; i < arr.length; i++) {
+             int temp = arr[i];
+             int j = i - 1;
+             while (j >= 0 && arr[j] > temp) {
+                arr[j + 1] = arr[j];
+                j--;
+             }
+             arr[j + 1] = temp;
+        }
+    }
+
+❤️❤️=========❤️❤️️❤️️❤️️❤️
+
+Merge sort: This sorting algorithm is based on the Divide and Conquer algorithm. It divides the
+    input array into two halves, calls itself for the two halves, and then merges the two sorted
+    halves. The merge() function is used for merging two halves.
+
+❤️ use  this when: Merge sort is often favored for sorting linked lists, where sequential access
+                        is more efficient than random access. It also works well with arrays.
+                   Mergesort is more consistent in its performance across different types of input
+                        data. It's a stable sorting algorithm and has a guaranteed worst-case
+                        time complexity of O(n log n), which means it performs well even for
+                        large arrays or data that is already partially sorted.
+                   In linked lists, merge sort has a consistent time complexity regardless of
+                            the number of elements, making it a popular choice for sorting
+                            linked lists efficiently.
+                   💛best: omega(Nlog(N)), average: theta(Nlog(N)),💛 worst: O(Nlog(N))
+
+---------
+
+Quick sort: This sorting algorithm is also based on the Divide and Conquer algorithm. It picks an
+            element as a pivot and partitions the given list around the picked pivot. After
+            partitioning the list on the basis of the pivot element, the Quick is again applied
+            recursively to two sublists i.e., the sublist to the left of the pivot element and
+            the sublist to the right of the pivot element.
+
+❤️ use this when: Quicksort is generally faster than merge sort for sorting large simple arrays,
+                        especially when the array is randomly ordered or nearly so. It has an
+                        average-case time complexity of O(n log n), making it efficient for a
+                        wide range of inputs.
+                   It's particularly effective when dealing with arrays due to its partitioning
+                        and recursive divide-and-conquer approach.
+                   💛best: omega(Nlog(N)), average: theta(Nlog(N))💛 worst: O(N^2)
+
+❤️❤️=========❤️❤️️❤️️❤️️❤️
+    public static void mergeSort(int[] arr) {
+        if (arr == null || arr.length <= 1)
+            return;
+
+        int mid = arr.length / 2;
+        int[] left = new int[mid];
+        int[] right = new int[arr.length - mid];
+
+        for (int i = 0; i < mid; i++) {
+            left[i] = arr[i];
+        }
+        for (int i = mid; i < arr.length; i++) {
+            right[i - mid] = arr[i];
+        }
+
+        mergeSort(left);
+        mergeSort(right);
+
+        merge(arr, left, right);
+    }
+
+    public static void merge(int[] arr, int[] left, int[] right) {
+        int i = 0, j = 0, k = 0;
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                arr[k++] = left[i++];
+            } else {
+                arr[k++] = right[j++];
+            }
+        }
+        while (i < left.length) {
+            arr[k++] = left[i++];
+        }
+        while (j < right.length) {
+            arr[k++] = right[j++];
+        }
+    }
+
+    and for quicksort:
+
+        private static void quickSort(int[] array, int start, int end) {
+            if (end <= start) return;
+            int pivot = partition(array, start, end);
+            quickSort(array, start, pivot - 1);
+            quickSort(array, pivot + 1, end);
+        }
+
+        private static int partition(int[] array, int start, int end) {
+            int pivot = array[end];
+            int i = start - 1;
+            for (int j = start; j <= end; j++) {
+                if (array[j] < pivot) {
+                    i++;
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+            i++;
+            int temp = array[i];
+            array[i] = array[end];
+            array[end] = temp;
+            return i;
+        }
+
+❤️❤️=========❤️❤️️❤️️❤️️❤️
+
+---------dumpster---------
 
 Bubble sort: This sorting algorithm is the simplest sorting algorithm that works by repeatedly
 swapping the adjacent elements if they are in the wrong order. If we have total N elements, then
@@ -30,48 +178,3 @@ we need to repeat the above process for N-1 times.
                         larger datasets compared to more advanced algorithms like merge sort or
                         quicksort.
 
----------
-
-Insertion Sort: This sorting algorithm is a simple sorting algorithm that works the way we sort
-playing cards in our hands. It places an unsorted element at its suitable place in each iteration.
-
-❤️ use this when: If the data is nearly sorted or when the list is small as it has a complexity
-                        of O(N^2) and if the list is sorted a minimum number of elements will slide
-                        over to insert the element at its correct location.
-                     This algorithm is stable and it has fast running case when the list is nearly
-                        sorted.
-                     The usage of memory is a constraint as it has space complexity of O(1).
-
-❤️❤️=========❤️❤️
-use selection sort when it comes to small datasets.
-use insertion sort when it comes to partially sorted small datasets.
-    -> it has O(N^2) for average-case time complexity
-bubble is a weaker alternative for simplicity, but, in general, when it comes to big datasets, use:
-merge sort or quick sort.
-❤️❤️=========❤️❤️
-
-Merge sort: This sorting algorithm is based on the Divide and Conquer algorithm. It divides the
-    input array into two halves, calls itself for the two halves, and then merges the two sorted
-    halves. The merge() function is used for merging two halves.
-
-❤️ use  this when: Merge sort is often favored for sorting linked lists, where sequential access
-                        is more efficient than random access. It also works well with arrays.
-                      Merge sort has a consistent time complexity of O(n log n) regardless of the
-                        initial order of elements, making it suitable for various scenarios.
-                      In linked lists, merge sort has a consistent time complexity regardless of
-                            the number of elements, making it a popular choice for sorting
-                            linked lists efficiently.
-
----------
-
-Quick sort: This sorting algorithm is also based on the Divide and Conquer algorithm. It picks an
-            element as a pivot and partitions the given list around the picked pivot. After
-            partitioning the list on the basis of the pivot element, the Quick is again applied
-            recursively to two sublists i.e., the sublist to the left of the pivot element and
-            the sublist to the right of the pivot element.
-
-❤️ use this when: Quick sort is typically preferred for sorting large arrays, especially when
-                        random access to elements is available. It has an average-case time
-                        complexity of O(n log n), making it efficient for sorting large datasets.
-                     It's particularly effective when dealing with arrays due to its partitioning
-                        and recursive divide-and-conquer approach.
