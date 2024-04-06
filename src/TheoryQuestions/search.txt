@@ -1,0 +1,70 @@
+➡️ Given an array of integer numbers how do you find a given number’s position?
+➡️ What if the array were sorted, does this help you find the number faster?
+➡️ What is the complexity of the search?
+
+=========
+
+➡️ Well, is the array big or small? sorted or unsorted?
+
+If it's unsorted and small, we can use linear search. complexity: O(n)
+if it's unsorted and big, maybe we can use ternary search. i heard its slightly more
+    effective: O(log^3 n)
+
+if its unbounded and we dont know the size, we can use exponential search. complexity:O(log n)
+
+if its sorted and small: linear search. O(n)
+if its sorted and big: binary search. complexity: O(log n)
+if its sorted and big and uniformly distributed, maybe we can use interpolation search.
+    complexity: O(log(log(n)))
+if its sorted and very big: we can use jump search. complexity: O(squareRoot(n))
+
+
+➡️ and what if we dont have random memory access? if its a linkedlist?
+
+then we can use linear search, (adapted) interpolation search (for sorted LL) or
+    exponential search (for sorted LL)
+
+➡️ what if we have an unsorted and big array ? sort it and binary search or just search it?
+
+well, if we want to search only once, its better to use a search instead.
+    Parallel search involves dividing the array into smaller chunks and performing search
+    operations concurrently on different threads or processes. Distributed search distributes
+    the array across multiple nodes or machines and performs search operations in a distributed
+    manner. if we want to search multiple times, it s better to sort it and using a search
+    algorithm or better yet, put it in a hash tasble.
+
+➡️ how can we optimize them?
+
+To search through very large datasets efficiently, techniques like parallel search or indexing are
+commonly used.
+you could consider using techniques like caching or memoization. This involves storing previously
+searched elements and their corresponding results, so if the same element is searched again, you
+can return the result from the cache instead of re-executing the search. This can improve
+performance, especially if there are many repeated searches. (use hashmaps or doubleLL)
+Indexing involves pre-processing the dataset to create data structures like search trees or
+hash tables, which can significantly speed up search operations.
+
+=========
+
+interpolation code i found since it has a funny formula:
+
+private static int interpolationSearch(int[] array, int value) {
+      		int high = array.length - 1;
+      		int low = 0;
+
+      		while(value >= array[low] && value <= array[high] && low <= high) {
+      			int probe = low + (high - low) * (value - array[low]) /
+      					    (array[high] - array[low]);
+      			if(array[probe] == value) {
+      				return probe;
+      			}
+      			else if(array[probe] < value) {
+      				low = probe + 1;
+      			}
+      			else {
+      				high = probe -1;
+      			}
+      		}
+      		return -1;
+      	}
+      }

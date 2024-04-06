@@ -78,7 +78,9 @@ public class CarDealer {
         }
 
         public List<Car> getCarsByCategory(String category) {
-            return cars.stream()
+            List<Car> list = new ArrayList<>();
+
+            cars.stream()
                     .filter(car -> {
                         if (category.equalsIgnoreCase("compact") && car instanceof CompactCar) {
                             return true;
@@ -88,7 +90,9 @@ public class CarDealer {
                             return true;
                         } else return category.equalsIgnoreCase("wagon") && car instanceof Wagon;
                     })
-                    .collect(Collectors.toList());
+                    .forEach(list::add);
+
+            return list;
         }
 
         public List<Car> getCarsBySpecifications(int passengers, int capacity, int axes) {

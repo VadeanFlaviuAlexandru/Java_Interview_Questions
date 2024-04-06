@@ -1,0 +1,12 @@
+Suppose you read an infinite sequence of characters from a stream, one at a time, like so:
+G, X, A, C, X, F, G… At some later point in time (potentially much later), someone asks you:
+what was the 2nd character that didn’t repeat in the stream? Write a small program to handle
+reading the characters and be able to answer this question.
+
+A HashMap is a reasonable approach and is efficient for most cases.
+To be more memory efficient, we can use a linkedhashmap with access order.
+If we have a small character sequence for example, an array[256] based approach would be more
+    performance-friendly. if we want
+
+If the stream is not finite and keeps coming indefinitely, you need to implement a loop that reads
+characters from the input stream in real-time or at regular intervals.
