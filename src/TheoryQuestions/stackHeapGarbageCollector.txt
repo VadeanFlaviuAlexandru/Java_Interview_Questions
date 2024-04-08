@@ -1,0 +1,67 @@
+There are two types of memory: stack and heap
+
+stack memory is memory allocated for information used by local variables, parameters, addresses, etc.
+basically the value types we know how much memory is going to occupy. in case we dont know how much
+memory is going to occupy, like structures such as arrays or other collection types, we are going to
+set the structure's variables reference in the stack with the variables themselves in the heap.
+So whenever you have a class property (class=book and property=integer property called releaseyear),
+for example, this value goes to Heap no matter which one is its type. If the Book object was not a
+Class but a Struct, this value would be stored at the Stack, since Structs live in Stack.
+stack is also used for the execution of threads. each thread has its own stack. We can run out of
+memory and have a 'stack overflow'
+
+heap memory is growing dynamically as the program runs. if there is heap memory available, then it
+allocates that space (for example when we use 'new', the heap is growing). Heap is responsible for
+storing Reference Types, variables that still need to live beyond the execution of a method or don’t
+have a determined span of life, some examples of reference types are Classes, Arrays, Strings, and
+Delegates. Every time we create an instance of a class, an amount of space is allocated at the Heap
+to store this class data. This allocation is made automatically by the language runtime when the
+class constructor is called. When we compile our C# code, a lot of metadata is created regarding
+the code and one of this information is the needed size in memory for a new instance to be created
+and stored.
+
+The Garbage Collector has two triggers: when the amount of objects on the heap exceeds the
+acceptable limit or when the operating system triggers a warning of a potential out-of-memory
+scenario. But we also can force the execution of the GC by hand by calling the command GC.Collect()
+and that is a very bad idea! When the GC is triggered 4 things happen:
+
+Suspension: It suspends the execution of your ENTIRE application. That’s right, your application is
+frozen completely when the GC execution starts.
+Sweeping and shrinking: basically it removes the unused objects and the spaces which those objects
+occupied will remain free. so we have |--00--0--0------| as the heap and the 0 are the objects. the
+garbage collector will move the objects (and this is very expensive but necessary) after the last
+allocated object so that we can allocate a new larger object if needed: |0000------------|
+Resume: Finally our application unfreezes and things begin to run again.
+That’s why the GC works with the concept of areas where objects are allocated. These areas are
+classified by generations, there are 3: Gen0, Gen1, and Gen2, and the generations are directly
+related to the lifetime of objects in memory. Gen0 - Gen0 is where the youngest objects are.
+They are placed in this area, as the younger an object is, the greater the chance that it will
+not be needed in the future. Gen1 - Cleanup on Gen1 is only triggered when execution on Gen0
+was not able to free up enough memory. It works as a buffer area between Gen0 and Gen2.
+And if the object survives Gen1 what happens to it? Exactly, it goes to Gen2 which is
+our area for “older” objects. Oh, and if your object is static (it is born and dies along
+with the application) this is where it will be allocated as well.
+
+example:  Here’s a simple code that concatenates a string 50,000 times and returns that value.
+Strings are immutable types, that is, if we want to change their value, we need to create another
+string with the value we want, the reference in memory is re-pointed and the GC does the cleaning
+work since strings are reference types and live inside the heap.
+
+String string = ""
+for (int i = 0;i<50000;i++){
+string = string + i + ""
+}
+return string
+
+and Internally, StringBuilder works with an array of strings and only actually generates the
+string that we want to display when we perform sb.ToString().
+
+StringBuilder sb = new StringBuilder()
+for (int i = 0;i<50000;i++){
+sb.Append(i+" ")
+}
+return sb.ToString()
+
+This helps a lot to avoid the overhead of consecutive string allocations and GC triggers. That is
+why this method is much more performant. The number of GC clean-ups and memory
+allocation (1GB vs 457KB) speak for themselves.

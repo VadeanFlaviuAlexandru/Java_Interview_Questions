@@ -59,8 +59,8 @@ To mitigate these issues, various techniques and best practices can be applied:
 
     Deadlocks: Avoid deadlocks by ensuring that threads always acquire locks in the same order.
     Additionally, use timeout mechanisms or deadlock detection algorithms
-    (Resource Allocation Graph (RAG) Algorithm and Wait-for-Graph Algorithm) to identify and break
-    deadlocks if they occur.
+    (Resource Allocation Graph (RAG) Algorithm and Wait-for-Graph Algorithm (WGA)) to identify and
+    break deadlocks if they occur.
 
     Resource Contention: Minimize resource contention by using resource pooling techniques.
     This involves creating a pool of resources (such as database connections) that threads can
