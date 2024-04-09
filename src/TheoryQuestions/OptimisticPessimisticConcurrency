@@ -1,0 +1,54 @@
+What’s the difference between Optimistic and Pessimistic concurrency models?
+
+Optimistic and pessimistic concurrency control are two approaches used in database systems
+to manage access to shared data by multiple transactions. They represent different strategies
+for dealing with the possibility of conflicts between concurrent transactions.
+
+Optimistic Concurrency Control:
+
+    In optimistic concurrency control, transactions are allowed to proceed without any
+    locking mechanisms initially.
+    Each transaction is allowed to perform its operations without checking for conflicts with
+    other transactions.
+    Instead of locking data, optimistic concurrency control relies on detecting conflicts after
+    the transactions have completed their operations.
+    When a transaction attempts to commit, the database system checks whether any conflicts
+    occurred during its execution.
+    If conflicts are detected (e.g., another transaction modified the data being read or
+    modified by the current transaction), the transaction may be aborted or rolled back.
+    Optimistic concurrency control is often used in scenarios where conflicts between
+    transactions are relatively rare, and the overhead of locking data for each transaction
+    is deemed too high.
+
+Pessimistic Concurrency Control:
+
+    In pessimistic concurrency control, transactions acquire locks on data before performing
+    any operations that could potentially lead to conflicts.
+    Locks are obtained in advance to prevent other transactions from accessing or
+    modifying the same data until the lock is released.
+    CodingProblems.Transactions may acquire various types of locks, such as read locks (shared locks) or
+    write locks (exclusive locks), depending on the type of access they require.
+    Pessimistic concurrency control ensures that conflicts between transactions are avoided
+    by preventing concurrent access to shared data.
+    While effective at preventing conflicts, pessimistic concurrency control can lead
+    to performance overhead, especially in scenarios where long-held locks delay other
+    transactions and reduce concurrency.
+
+so in short:
+
+Optimistic concurrency ( could be a system where transactions are mostly read-only and conflicts
+between transactions are infrequent. In such a case, the overhead of acquiring locks in a
+pessimistic model might outweigh the benefits, making optimistic concurrency control more suitable.)
+control assumes conflicts are rare and detects them at the time of commit
+(and if conflicts arise, the transaction is rolled back, requiring the user to retry the transaction),
+while pessimistic concurrency control prevents conflicts by acquiring locks on data resources before
+access (<=> Pessimistic concurrency control ensures data consistency by acquiring locks on data
+resources before allowing access to them. This prevents concurrent access by multiple transactions,
+thereby avoiding conflicts.)
+
+so, optimistic:
+
+Advantages: Reduced overhead of locking, better performance in scenarios with low conflict rates.
+Disadvantages: Possibility of higher rollback rates and retries in case of conflicts, potential for
+                data inconsistency if conflicts are frequent.
+

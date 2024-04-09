@@ -80,42 +80,6 @@ Types of Polymorphism:
 disadvantages: complexity, slight performance maybe but not anymore because of modern JVM,
                 potential design issues.
 
-4. What’s the difference between Optimistic and Pessimistic concurrency models?
-
-Optimistic and pessimistic concurrency control are two approaches used in database systems
-to manage access to shared data by multiple transactions. They represent different strategies
-for dealing with the possibility of conflicts between concurrent transactions.
-
-Optimistic Concurrency Control:
-
-    In optimistic concurrency control, transactions are allowed to proceed without any
-    locking mechanisms initially.
-    Each transaction is allowed to perform its operations without checking for conflicts with
-    other transactions.
-    Instead of locking data, optimistic concurrency control relies on detecting conflicts after
-    the transactions have completed their operations.
-    When a transaction attempts to commit, the database system checks whether any conflicts
-    occurred during its execution.
-    If conflicts are detected (e.g., another transaction modified the data being read or
-    modified by the current transaction), the transaction may be aborted or rolled back.
-    Optimistic concurrency control is often used in scenarios where conflicts between
-    transactions are relatively rare, and the overhead of locking data for each transaction
-    is deemed too high.
-
-Pessimistic Concurrency Control:
-
-    In pessimistic concurrency control, transactions acquire locks on data before performing
-    any operations that could potentially lead to conflicts.
-    Locks are obtained in advance to prevent other transactions from accessing or
-    modifying the same data until the lock is released.
-    CodingProblems.Transactions may acquire various types of locks, such as read locks (shared locks) or
-    write locks (exclusive locks), depending on the type of access they require.
-    Pessimistic concurrency control ensures that conflicts between transactions are avoided
-    by preventing concurrent access to shared data.
-    While effective at preventing conflicts, pessimistic concurrency control can lead
-    to performance overhead, especially in scenarios where long-held locks delay other
-    transactions and reduce concurrency.
-
 5. Elaborate on Inheritance vs Composition
 
  Inheritance is a mechanism in which a new class (subclass or derived class) is created based
@@ -124,3 +88,7 @@ Pessimistic Concurrency Control:
  Composition is a design technique in which a class contains an instance of another class as a
  member. Rather than inheriting attributes and behaviors, a class uses instances of
  other classes to fulfill its functionality.
+
+ disadvantages: complexity, tight coupling (making your code less flexible and harder to maintain),
+                possible performance, there are some limitations such as no possible way to do
+                method overriding (since you're not actually inheriting)
