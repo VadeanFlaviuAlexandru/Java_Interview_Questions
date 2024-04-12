@@ -1,2 +1,4 @@
-package CodingProblems.DesignPatterns.CreationalPatterns;public class ThePrototype {
+package CodingProblems.DesignPatterns.CreationalPatterns;
+
+public class ThePrototype {
 }
