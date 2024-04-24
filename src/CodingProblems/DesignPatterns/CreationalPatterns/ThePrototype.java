@@ -30,35 +30,35 @@ public class ThePrototype {
 
     //---------------------------------- now let's say that the car is extending another class
 
-    public abstract class Vehicle {
-        private String brand;
-        //and other info
-
-        protected Vehicle(Vehicle vehicle) {
-            this.brand = vehicle.brand;
-        }
-
-        //move the clone from interface to this;
-        public abstract Vehicle clone();
-    }
-
-    public class Car extends Vehicle {
-
-        private String information;
-
-        public Car() {
-        }
-
-        public Car(Car car) {
-            super(car);
-            this.information = car.information;
-        }
-
-        @Override
-        public Car clone() {
-            return new Car(this);
-        }
-    }
+//    public abstract class Vehicle {
+//        private String brand;
+//        //and other info
+//
+//        protected Vehicle(Vehicle vehicle) {
+//            this.brand = vehicle.brand;
+//        }
+//
+//        //move the clone from interface to this;
+//        public abstract Vehicle clone();
+//    }
+//
+//    public class Car extends Vehicle {
+//
+//        private String information;
+//
+//        public Car() {
+//        }
+//
+//        public Car(Car car) {
+//            super(car);
+//            this.information = car.information;
+//        }
+//
+//        @Override
+//        public Car clone() {
+//            return new Car(this);
+//        }
+//    }
 
     // sometimes we need a prototype registry, which stores frequently accessed prototypes.
     // make a new hashmap and put the value you premade:        .put("buggati", car);
