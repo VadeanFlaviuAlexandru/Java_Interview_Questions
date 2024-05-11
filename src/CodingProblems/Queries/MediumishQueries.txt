@@ -1,0 +1,26 @@
+SELECT c.last_name AS lname, t.name AS city FROM customer AS c
+INNER JOIN city as t ON c.id=t.customer_id
+
+SELECT AVG (price) FROM product
+
+SELECT COUNT (id) FROM product
+
+SELECT SUM (price) FROM product
+
+SELECT last_name FROM customer INTERSECT SELECT last_name from employee (INTERSECT can return null
+                                                                         and removes duplicates)
+
+SELECT last_name FROM customer UNION ALL SELECT last_name FROM employee (join records only if the records
+                                                                         belong to similar data types)
+
+SELECT MAX (price) FROM product
+
+SELECT MIN (price) FROM product
+
+DELETE FROM product
+
+INSERT INTO product(id,name,category) VALUES (15,'A','B')
+
+UPDATE product SET name = 'alex' WHERE id = 15
+
+DROP TABLE table1

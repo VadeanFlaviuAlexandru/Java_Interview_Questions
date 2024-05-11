@@ -1,0 +1,26 @@
+SELECT *
+
+CREATE db_name
+
+SELECT id, name, FROM students WHERE age>=10
+
+SELECT id, name FROM students
+
+SELECT id, name FROM students WHERE age>10 OR name = 'John'
+
+SELECT id, name FROM students WHERE age>10 AND name = 'John'
+
+SELECT DISTINCT name, color FROM clothing (use 'DISTINCT' for avoiding duplicates)
+
+SELECT id, name FROM students ORDER BY name DESC, id (so the name is desc and also sorted by id asc)
+
+SELECT name, color FROM clothing WHERE color IS NOT NULL
+
+SELECT id, name FROM animal ORDER BY name
+
+SELECT CONCAT (name, `,` category) FROM tab (the result of this query will be a single column containing concatenated strings)
+
+SELECT id, name FROM animal WHERE name LIKE `%b%` (containing the letter 'b')
+
+SELECT price - discount FROM product;
+

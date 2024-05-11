@@ -1,0 +1,16 @@
+    Pre-order traversal: In pre-order traversal, the root node is visited first,
+                            then its left and right sub-trees are visited.
+
+                            so: root -> left -> right
+
+
+    In-order traversal: In in-order traversal, the left sub-tree is visited first,
+                            then the root node, and finally the right sub-tree.
+
+                            so: left -> root -> right
+
+
+    Post-order traversal: In post-order traversal, the left and right sub-trees are visited
+                            first, and then the root node is visited last.
+
+                            so: left -> right -> root
