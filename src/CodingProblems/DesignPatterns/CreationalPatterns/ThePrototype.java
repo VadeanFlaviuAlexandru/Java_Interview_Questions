@@ -1,7 +1,7 @@
 package CodingProblems.DesignPatterns.CreationalPatterns;
 
 public class ThePrototype {
-    // delegates the object duplication or cloning process to the actual objects that are being cloned
+    // entrusts the object duplication or cloning process to the actual objects that are being cloned
     // to start, we need to declare a common interface for all objects that support cloning
     // usually, this contains one method that creates a new object of the class and copies all the
     // fields of the old object into the new one (so doing this we have access to private fields

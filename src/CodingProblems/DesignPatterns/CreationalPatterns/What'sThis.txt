@@ -1,1 +1,15 @@
 provide more flexibility in how the objects are actually created
+
+Singleton: It's about ensuring that a class has only one instance and providing a global point
+of access to that instance. You might want to emphasize the benefits, such as resource management
+(like database connections), global access, and ensuring consistency across the application.
+
+Builder: It's indeed useful when you need to construct an object step by step, especially when
+dealing with complex objects with many optional parameters. Emphasize its flexibility in
+constructing objects with different configurations and avoiding telescoping constructor issues.
+
+Factory: It's used to create objects without specifying the exact class of object that will be
+created. You might want to elaborate on the different types of factory patterns (e.g., simple
+factory, factory method, abstract factory) and when each is most appropriate. Also, highlight
+its advantages in decoupling object creation from the client code and facilitating easy addition
+of new object types.

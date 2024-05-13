@@ -4,7 +4,7 @@ public class TheBuilder {
     // create complex objects on a step by step basis
     // sometimes we may not need to fill all the constructor parameters
 
-    public class Director { // optional
+    public class Director { // optional, kind of like presets
 
         public void buildBugatti(Builder builder) {
             builder.brand("Bugatti").color("Blue").nbrOfDoors(2).engine("8L").height(115);
@@ -14,7 +14,7 @@ public class TheBuilder {
             builder.brand("Lamborghini").model("Aventador").color("Yellow").height(120);
         }
 
-    }
+    } // optional, kind of like presets
 
     public class Car {
 
@@ -35,7 +35,7 @@ public class TheBuilder {
             this.engine = engine;
             this.nbrOfDoors = nbrOfDoors;
         }
-    }
+    } // so a 'builder' we have a class with fields and a constructor. thats it.
 
     public interface Builder {
 
@@ -53,7 +53,7 @@ public class TheBuilder {
 
         Builder nbrOfDoors(int nbrOfDoors);
 
-    }
+    } // and we have an interface called Builder that has multiple constructors for each field.
 
     public class CarBuilder implements Builder {
 
@@ -110,7 +110,7 @@ public class TheBuilder {
         public Car build() {
             return new Car(id, brand, model, color, height, engine, nbrOfDoors);
         }
-    }
+    } // and finally we have a car builder (so a class builder) that we pass each field we want, ending with .build
 
     //    Director director = new Director();
     //

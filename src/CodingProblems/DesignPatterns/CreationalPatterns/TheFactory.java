@@ -15,50 +15,114 @@ public class TheFactory {
     // the factory method relies heavily on inheritance
     // lets creator-subclasses decide which class to instantiate
 
-    public interface Burger {// this defines the common methods that all burgers should implement
+    // Define an interface for all types of burgers
+    public interface Burger {
         void prepare();
+
+        String getName();
+
+        double getPrice();
     }
 
-    public class BeefBurger implements Burger {// prepares the burger in its own way
+    // Concrete implementation of BeefBurger
+    public static class BeefBurger implements Burger {
+        private final String name;
+        private final double price;
+
+        public BeefBurger(String name, double price) {
+            this.name = name;
+            this.price = price;
+        }
+
         @Override
         public void prepare() {
-            // prepare beef
-            // burger code
+            // Prepare beef burger
+        }
+
+        @Override
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public double getPrice() {
+            return price;
         }
     }
 
-    public class VeggieBurger implements Burger {// prepares the burger in its own way
+    // Concrete implementation of VeggieBurger
+    public static class VeggieBurger implements Burger {
+        private final String name;
+        private final double price;
+
+        public VeggieBurger(String name, double price) {
+            this.name = name;
+            this.price = price;
+        }
+
         @Override
         public void prepare() {
-            // prepare beef
-            // burger code
+            // Prepare veggie burger
+        }
+
+        @Override
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public double getPrice() {
+            return price;
         }
     }
 
-    public abstract class Restaurant {// base class for different types of restaurants
-        public Burger orderBurger(String request) {
-            Burger burger = createBurger();
+    // Abstract class representing a restaurant
+    public abstract static class Restaurant {
+        // Method to order a burger
+        public Burger orderBurger() {
+            Burger burger = createBurger(); // Factory method
             burger.prepare();
             return burger;
         }
 
-        public abstract Burger createBurger(); // the factory method and will be implemented by
-        //                                        the subclasses of the restaurant class
+        // Factory method to create burgers
+        protected abstract Burger createBurger();
     }
 
-    public class BeefBurgerRestaurant extends Restaurant {// restaurant subclass
-
+    // Concrete implementation of a restaurant serving beef burgers
+    public static class BeefBurgerRestaurant extends Restaurant {
         @Override
-        public Burger createBurger() {
-            return new BeefBurger();
+        protected Burger createBurger() {
+            return new BeefBurger("Beef Burger", 5.99);
         }
     }
 
-    public class VeggieBurgerRestaurant extends Restaurant {// restaurant subclass
-
+    // Concrete implementation of a restaurant serving veggie burgers
+    public static class VeggieBurgerRestaurant extends Restaurant {
         @Override
-        public Burger createBurger() {
-            return new VeggieBurger();
+        protected Burger createBurger() {
+            return new VeggieBurger("Veggie Burger", 4.99);
+        }
+    }
+
+    // Customer class
+    public static class Customer {
+        public static void main(String[] args) {
+            // Create an instance of a restaurant
+            Restaurant beefBurgerRestaurant = new BeefBurgerRestaurant();
+
+            // Order a burger from the restaurant
+            Burger burger = beefBurgerRestaurant.orderBurger();
+
+            // Print out the details of the ordered burger
+            System.out.println("Ordered " + burger.getName() + " for $" + burger.getPrice());
+
+            // Similarly, we can order from another restaurant
+            Restaurant veggieBurgerRestaurant = new VeggieBurgerRestaurant();
+            Burger veggieBurger = veggieBurgerRestaurant.orderBurger();
+            System.out.println("Ordered " + veggieBurger.getName() + " for $" + veggieBurger.getPrice());
         }
     }
 }
+
+
