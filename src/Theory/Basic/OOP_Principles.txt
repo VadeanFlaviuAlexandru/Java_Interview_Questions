@@ -42,3 +42,31 @@ interface to represent different data types or objects.
 Disadvantages of polymorphism: complexity, Dynamic polymorphism often involves method lookup at
                                runtime, which can result in performance overhead compared to static
                                polymorphism
+
+
+! so !
+
+does an abstract class need to have an abstract methods or can it have literally everything that a normal class has without the abstract methods ?
+Yes.
+An abstract class does NOT need to have any abstract methods. It can have everything a normal class has:
+
+fields
+constructors
+concrete methods
+static methods
+getters/setters
+
+The only difference:
+It cannot be instantiated
+It can have abstract methods (optional)
+
+and an interface is obligated to have abstract methods ? 
+
+No. An interface is not obligated to have abstract methods. It can have zero abstract methods.
+
+What an interface can contain:
+
+abstract methods (default)
+default methods
+static methods
+constants (public static final)
